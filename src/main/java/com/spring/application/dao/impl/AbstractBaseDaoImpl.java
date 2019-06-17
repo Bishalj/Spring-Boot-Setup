@@ -9,10 +9,10 @@ public class AbstractBaseDaoImpl<T> {
     MongoTemplate mongoTemplate;
 
     public T findById(String id, Class<T> clazz){
-        return mongoTemplate.findById(id, clazz);
+        return mongoTemplate.findById(id, clazz,  clazz.getSimpleName());
     }
 
     public T save(T object, Class<T> clazz){
-         return mongoTemplate.save(object, clazz.getName());
+         return mongoTemplate.save(object, clazz.getSimpleName());
     }
 }
